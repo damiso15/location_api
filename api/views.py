@@ -4,13 +4,13 @@ from rest_framework.views import APIView
 from cities.models import City, Continent, Country, District, Region, Subregion
 from .serializers import CountrySerializer, RegionSerializer, ContinentSerializer, SubRegionSerializer, CitySerializer, \
     DistrictSerializer
-from .permissions import IsOwnerOrReadOnly
-from rest_framework import status
+from rest_framework import status, permissions
 
 # Create your views here.
 
 
 class ContinentView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
         continent = Continent.objects.all()
@@ -19,6 +19,7 @@ class ContinentView(APIView):
 
 
 class ContinentDetailView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self, slug):
         try:
@@ -34,6 +35,7 @@ class ContinentDetailView(APIView):
 
 
 class CountryView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
         country = Country.objects.all()
@@ -42,6 +44,7 @@ class CountryView(APIView):
 
 
 class CountryDetailView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self, slug):
         try:
@@ -57,6 +60,7 @@ class CountryDetailView(APIView):
 
 
 class RegionView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
         region = Region.objects.all()
@@ -65,6 +69,7 @@ class RegionView(APIView):
 
 
 class RegionDetailView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self, id):
         try:
@@ -80,6 +85,7 @@ class RegionDetailView(APIView):
 
 
 class SubRegionView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
         sub_region = Subregion.objects.all()
@@ -88,6 +94,7 @@ class SubRegionView(APIView):
 
 
 class SubRegionDetailView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self, id):
         try:
@@ -103,6 +110,7 @@ class SubRegionDetailView(APIView):
 
 
 class CityView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
         city = City.objects.all()
@@ -111,6 +119,7 @@ class CityView(APIView):
 
 
 class CityDetailView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self, id):
         try:
@@ -126,6 +135,7 @@ class CityDetailView(APIView):
 
 
 class DistrictView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
         district = District.objects.all()
@@ -134,6 +144,7 @@ class DistrictView(APIView):
 
 
 class DistrictDetailView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self, id):
         try:

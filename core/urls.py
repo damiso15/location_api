@@ -24,6 +24,8 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include('api.urls')),
-    path('', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION, permission_classes=(permissions.AllowAny,))),
-    path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('api/auth/', include('authentication.urls')),
+    # path('doc', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION, permission_classes=(permissions.AllowAny,))),
+    path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('redoc', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
