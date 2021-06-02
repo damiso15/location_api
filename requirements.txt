@@ -119,7 +119,7 @@ ufw==0.36
 unattended-upgrades==0.1
 Unidecode==1.1.1
 uritemplate==3.0.1
-urllib3==1.25.9
+urllib3==1.26.5
 usb-creator==0.3.7
 wadllib==1.3.3
 webencodings==0.5.1
